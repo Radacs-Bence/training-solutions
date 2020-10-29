@@ -9,6 +9,6 @@ public class Registration {
         String name = scanner.nextLine();
         System.out.println("E-mail:");
         String eMail = scanner.nextLine();
-        System.out.println("Név:" + name + "\r\n" + "E-mail:" + eMail);
+        System.out.println("Regisztáció sikeres!" + "\r\n" + "Név:" + name + "\r\n" + "E-mail:" + eMail);
     }
 }

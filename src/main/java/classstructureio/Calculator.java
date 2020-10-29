@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Calculator {
     public static void main(String[] args) {
-        System.out.println("Write two numbers with space between them:");
+        System.out.println("Write two numbers with space between them: ");
         Scanner scanner = new Scanner(System.in);
         int firstNum = scanner.nextInt();
         int secondNum = scanner.nextInt();

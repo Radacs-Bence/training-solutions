@@ -18,7 +18,7 @@ public class Product {
     }
 
     public boolean areTheyEqual(Product p){
-        return getName().equals(p.getName());
+        return getName().equals(p.getName()) && (getCode().length()-p.getCode().length()) <= 1 && (getCode().length()-p.getCode().length()) >= -1;
     }
 
     public static void main(String[] args) {

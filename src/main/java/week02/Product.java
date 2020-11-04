@@ -18,7 +18,9 @@ public class Product {
     }
 
     public boolean areTheyEqual(Product p){
-        return getName().equals(p.getName()) && (getCode().length()-p.getCode().length()) <= 1 && (getCode().length()-p.getCode().length()) >= -1;
+        return getName().equals(p.getName())
+                && (getCode().length()-p.getCode().length()) <= 1
+                && (getCode().length()-p.getCode().length()) >= -1;
     }
 
     public static void main(String[] args) {
@@ -28,6 +30,11 @@ public class Product {
 
        boolean testPeachPineapple = peach.areTheyEqual(pineapple);
        boolean testPeachApricot = peach.areTheyEqual(apricot);
-       System.out.println("Egyezés:\r\n1.termék és 2. termék: " + testPeachPineapple + "\r\n1.termék és 3. termék: " + testPeachApricot);
+       boolean testApricotPineapple = apricot.areTheyEqual(pineapple);
+       System.out.println(
+               "Egyezés:\r\n1.termék és 2. termék: " + testPeachPineapple +
+                       "\r\n1.termék és 3. termék: " + testPeachApricot +
+                       "\r\n2.termék és 3. termék: " + testApricotPineapple
+       );
     }
 }

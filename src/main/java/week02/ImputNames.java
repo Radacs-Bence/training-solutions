@@ -9,7 +9,7 @@ public class ImputNames {
         String[] names = new String[5];
 
 
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < names.length; i++){
 
             String text;
             if(i == 0){
@@ -22,8 +22,8 @@ public class ImputNames {
             names[i] = scanner.nextLine();
 
         }
-        for (int i = 0; i < 5; i++){
-            System.out.println((i + 1) + ". név:" + names[i]);
+        for (int i = 0; i < names.length; i++){
+            System.out.println((i + 1) + ". név: " + names[i]);
         }
     }
 }

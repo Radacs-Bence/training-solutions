@@ -29,14 +29,16 @@ public class ArrayOfArraysMain {
         }
 
         for (int i = 0; i<a.length; i++){
-            for (int k = 0; k<a[i].length; k++) {
+            for (int k = 0; k < a[i].length; k++) {
+
                 String space = " ";
-                int length = rowDistance;
+                int distanceBetweenNumbers = rowDistance;
 
                 for(int j = 1; j <= a[i][k]; j = (j * 10)){
-                    length--;
+                    distanceBetweenNumbers--;
                 }
-                for (int l = 1; l <= length; l++){
+
+                for (int l = 1; l <= distanceBetweenNumbers; l++){
                     space = space + " ";
                 }
 

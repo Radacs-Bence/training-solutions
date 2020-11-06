@@ -22,21 +22,15 @@ public class ArrayOfArraysMain {
                 }
             }
         }
-        int rowDistance=1;
+        int columnDistance=(largest + "").length();
 
-        for(int i = largest; i > 9; i = (i / 10)){
-            rowDistance++;
-        }
 
         for (int i = 0; i<a.length; i++){
             for (int k = 0; k < a[i].length; k++) {
 
                 String space = " ";
-                int distanceBetweenNumbers = rowDistance;
-
-                for(int j = 1; j <= a[i][k]; j = (j * 10)){
-                    distanceBetweenNumbers--;
-                }
+                int numberLength = (a[i][k] + "").length();
+                int distanceBetweenNumbers = columnDistance-numberLength;
 
                 for (int l = 1; l <= distanceBetweenNumbers; l++){
                     space = space + " ";

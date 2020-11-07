@@ -26,6 +26,15 @@ public class Books {
         return titles;
     }
 
+    public void removeByPrefix(String prefix){
+        for (int i = 0; i < titles.size(); i++){
+            String element = titles.get(i);
+            if(element.indexOf(prefix) != -1){
+                titles.remove(element);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         Books books = new Books();
@@ -41,7 +50,11 @@ public class Books {
 
         System.out.println(books.findAllByPrefix("Potter"));
 
+        books.removeByPrefix("Potter");
 
+        System.out.println(books.getTitles());
+
+        System.out.println(books.findAllByPrefix("Potter"));
 
     }
 }

@@ -15,7 +15,7 @@ public class Books {
         List<String> containsPrefix = new ArrayList<>();
         for (int i = 0; i < titles.size(); i++){
             String element = titles.get(i);
-            if(element.indexOf(prefix) != -1){
+            if(element.indexOf(prefix) == 0){
                 containsPrefix.add(element);
             }
         }
@@ -29,7 +29,7 @@ public class Books {
     public void removeByPrefix(String prefix){
         for (int i = 0; i < titles.size(); i++){
             String element = titles.get(i);
-            if(element.indexOf(prefix) != -1){
+            if(element.indexOf(prefix) == 0){
                 titles.remove(element);
             }
         }
@@ -48,13 +48,13 @@ public class Books {
 
         System.out.println(books.getTitles());
 
-        System.out.println(books.findAllByPrefix("Potter"));
+        System.out.println(books.findAllByPrefix("Harry"));
 
-        books.removeByPrefix("Potter");
+        books.removeByPrefix("Harry");
 
         System.out.println(books.getTitles());
 
-        System.out.println(books.findAllByPrefix("Potter"));
+        System.out.println(books.findAllByPrefix("Harry"));
 
     }
 }

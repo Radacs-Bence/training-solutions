@@ -54,6 +54,14 @@ public class Capsules {
 
         System.out.println(capsules.getColours());
 
+        List<String> coloursAgain = capsules.getColours();
+
+        System.out.println(coloursAgain);
+
+        coloursAgain.clear();
+        System.out.println(coloursAgain);
+        System.out.println(capsules.getColours());
+
 
     }
 

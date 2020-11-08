@@ -9,7 +9,7 @@ public class TaxCalculator {
     }
 
     public double priceWithTax(double price) {
-        return price + (tax(price));
+        return price + tax(price);
     }
 
     public static void main(String[] args) {

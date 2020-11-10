@@ -39,7 +39,7 @@ public class Position {
 
         for (Position position: company) {
             if (position.getBonus() > 150_000) {
-                System.out.println(position.toString());
+                System.out.println(position);
             }
 
         }

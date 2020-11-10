@@ -23,8 +23,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position: " + name + ", " +
-                "Bonus: " + bonus;
+        return "Position: " + name + ", Bonus: " + bonus;
     }
 
     public static void main(String[] args) {

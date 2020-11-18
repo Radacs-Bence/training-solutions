@@ -9,7 +9,7 @@ public class NumberGuesser {
         Random rnd = new Random();
         Scanner scanner = new Scanner(System.in);
         int number = rnd.nextInt(100) + 1;
-        System.out.println("Gondoltam egy számra! Hatszor köröd van hogy kitaláld!");
+        System.out.println("Gondoltam egy számra! Hat köröd van hogy kitaláld!");
 
         int counter = 0;
         boolean correct = false;

@@ -9,23 +9,30 @@ public class NumberGuesser {
         Random rnd = new Random();
         Scanner scanner = new Scanner(System.in);
         int number = rnd.nextInt(100) + 1;
-        System.out.println("Gondoltam egy számra");
+        System.out.println("Gondoltam egy számra! Hatszor köröd van hogy kitaláld!");
 
+        int counter = 0;
         boolean correct = false;
-        while (!correct){
-            System.out.println("Tippelj!");
+        while (counter != 6 && !correct){
+            System.out.println("Tippelj! " + (6-counter) + " próbálkozásod van");
             int guess = scanner.nextInt();
             scanner.nextLine();
             if (number > guess){
                 System.out.println("Nem talált! Ennél nagyobb!");
+                counter++;
             }
             if (number < guess){
                 System.out.println("Nem talált! Ennél kisebb!");
+                counter++;
             }
             if (number == guess){
-                System.out.println("Talált! Ügyes vagy!");
                 correct = true;
             }
+        }
+        if (correct){
+            System.out.println("Talált! Ügyes vagy!");
+        } else {
+            System.out.println("Kifutottál a próbálkozásokból! Legközelebb biztos sikerül!");
         }
 
     }

@@ -7,7 +7,7 @@ import java.util.Random;
 public class ClassRecords {
 
     private String className;
-    private Random rnd = new Random();
+    private Random rnd;
     private List<Student> students = new ArrayList<>();
 
     public ClassRecords(String className, Random rnd) {
@@ -34,12 +34,14 @@ public class ClassRecords {
 
     public boolean removeStudent (Student student){
         boolean isOlD = false;
+        List<Student> studentsToDelete = new ArrayList<>();
         for (Student classmate: students) {
             if (classmate.getName().equals(student.getName())){
                 isOlD = true;
-                students.remove(student);
+                studentsToDelete.add(classmate);
             }
         }
+        students.removeAll(studentsToDelete);
         return isOlD;
     }
 

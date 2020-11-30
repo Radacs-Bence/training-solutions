@@ -32,9 +32,9 @@ public class Song {
             invalid = true;
             text.append(String.format("Előadó: %s nem elfogadható! ", artist));
         }
-        if (lengthInSeconds == 0){
+        if (lengthInSeconds <= 0){
             invalid = true;
-            text.append(String.format("Hossz: %d nem elfogadható! ", lengthInSeconds));
+            text.append(String.format("Hossz: %d másodperc nem elfogadható! ", lengthInSeconds));
         }
                throw new IllegalArgumentException(text.toString());
     }

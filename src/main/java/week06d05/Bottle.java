@@ -15,10 +15,10 @@ public class Bottle {
     }
 
     public void fill(int fillAmount){
-        filledUntil += fillAmount;
-        if (filledUntil > type.getMaximumAmount()){
+        if (filledUntil + fillAmount > type.getMaximumAmount()){
             throw new IllegalArgumentException("The bottle overflows if it's filled by " + fillAmount);
         }
+        filledUntil += fillAmount;
     }
 
     public BottleType getType() {

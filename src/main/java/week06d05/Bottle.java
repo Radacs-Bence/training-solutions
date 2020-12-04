@@ -3,15 +3,14 @@ package week06d05;
 public class Bottle {
 
     private BottleType type;
-    private int filledUntil;
+    private int filledUntil = 0;
 
-    public Bottle(BottleType type, int filledUntil) {
+    public Bottle(BottleType type) {
         this.type = type;
-        this.filledUntil = filledUntil;
     }
 
     public static Bottle of(BottleType type){
-        return new Bottle(type, 0);
+        return new Bottle(type);
     }
 
     public void fill(int fillAmount){

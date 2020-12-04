@@ -11,7 +11,7 @@ public class BottleTest {
     public void bottle(){
         Bottle bottleGlass = Bottle.of(BottleType.GLASS_BOTTLE);
 
-        assertEquals(100, bottleGlass.getFilledUntil());
+        assertEquals(0, bottleGlass.getFilledUntil());
         assertEquals(BottleType.GLASS_BOTTLE, bottleGlass.getType());
     }
 
@@ -20,7 +20,7 @@ public class BottleTest {
         Bottle bottleGlass = Bottle.of(BottleType.PET_BOTTLE);
         bottleGlass.fill(50);
 
-        assertEquals(150, bottleGlass.getFilledUntil());
+        assertEquals(50, bottleGlass.getFilledUntil());
     }
 
     @Test

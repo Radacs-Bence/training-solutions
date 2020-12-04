@@ -11,12 +11,12 @@ public class Bottle {
     }
 
     public static Bottle of(BottleType type){
-        return new Bottle(type, type.getMaximumAmount());
+        return new Bottle(type, 0);
     }
 
     public void fill(int fillAmount){
-        filledUntil -= fillAmount;
-        if (filledUntil < 0){
+        filledUntil += fillAmount;
+        if (filledUntil > type.getMaximumAmount()){
             throw new IllegalArgumentException("The bottle overflows if it's filled by " + fillAmount);
         }
     }

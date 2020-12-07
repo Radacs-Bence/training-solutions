@@ -2,6 +2,8 @@ package week07d01;
 
 public class Fibonacci {
 
+    private static Long[] results;
+
     public long fib(int n){
         long resultOne = 1;
         long resultTwo = 1;
@@ -20,4 +22,26 @@ public class Fibonacci {
         }
         return resultOne;
     }
+
+    public long fibBonus(int n){
+        if (n < 0){
+            throw new IllegalArgumentException("Index cannot be negative!");
+        }
+        results = new Long[n+1];
+        return bonusRecursive(n);
+    }
+
+    private long bonusRecursive(int n){
+        if (n == 0){
+            return 0;
+        }
+        if(n == 1){
+            return 1;
+        }
+        if (results[n] == null){
+            results[n] = bonusRecursive(n-1) + bonusRecursive(n-2);
+        }
+        return results[n];
+    }
+
 }

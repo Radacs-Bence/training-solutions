@@ -21,13 +21,13 @@ public class Sultan {
         return findOpens();
     }
 
-    public void turnKeys(int nthDoors){
+    private void turnKeys(int nthDoors){
         for(int i = 0; i < jail.size(); i += nthDoors){
             jail.get(i).turnKey();
         }
     }
 
-    public List<Door> findOpens(){
+    private List<Door> findOpens(){
         List<Door> open = new ArrayList<>();
         for (Door door: jail) {
             if (door.getDoorState() == DoorState.OPEN && door.getIndex() != 0){
@@ -36,5 +36,6 @@ public class Sultan {
         }
         return open;
     }
+
 
 }

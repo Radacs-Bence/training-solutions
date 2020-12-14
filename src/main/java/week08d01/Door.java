@@ -21,4 +21,9 @@ public class Door {
     public DoorState getDoorState() {
         return doorState;
     }
+
+    @Override
+    public String toString() {
+        return index + ". ajtó";
+    }
 }

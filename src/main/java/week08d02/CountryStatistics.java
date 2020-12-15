@@ -12,7 +12,7 @@ public class CountryStatistics {
     private List<Country> countries;
 
 
-    private void countryStatisticsReader(String path){
+    public void countryStatisticsReader(String path){
         Path file = Path.of(path);
         List<String> lines;
         try {

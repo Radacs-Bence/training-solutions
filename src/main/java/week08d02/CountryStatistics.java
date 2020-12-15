@@ -36,5 +36,15 @@ public class CountryStatistics {
         return List.copyOf(countries);
     }
 
+    public Country maxPopulation(){
+        Country max = countries.get(0);
+        for (Country country: countries) {
+            if (max.getPopulation() < country.getPopulation()){
+                max = country;
+            }
+        }
+        return max;
+    }
+
 
 }

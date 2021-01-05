@@ -10,14 +10,18 @@ import java.util.List;
 
 public class Travel {
 
+    public static final String SEPARATOR = " ";
+    public static final int STATION_INDEX = 0;
+    public static final int STATIONS = 30;
+
     public int getStationWithMax(InputStream inputStream) {
         int maxStation = -1;
         List<Integer> entries = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line = "";
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(" ");
-                entries.add(Integer.parseInt(parts[0]));
+                String[] parts = line.split(SEPARATOR);
+                entries.add(Integer.parseInt(parts[STATION_INDEX]));
             }
         } catch (IOException ioException) {
             throw new IllegalStateException("Can not read File", ioException);
@@ -28,7 +32,7 @@ public class Travel {
     }
 
     private int[] counter(List<Integer> entries){
-        int[] passengers = new int[30];
+        int[] passengers = new int[STATIONS];
         for (Integer number : entries) {
             passengers[number]++;
         }
@@ -36,11 +40,9 @@ public class Travel {
     }
 
     private int max (int[] passengers){
-        int maxStation = -1;
-        int maxPassengers = -1;
-        for (int i = 0; i < 30; i++) {
-            if (passengers[i] > maxPassengers){
-                maxPassengers = passengers[i];
+        int maxStation = 0;
+        for (int i = 0; i < passengers.length; i++) {
+            if (passengers[i] > passengers[maxStation]){
                 maxStation = i;
             }
         }

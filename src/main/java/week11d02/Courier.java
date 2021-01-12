@@ -36,7 +36,7 @@ public class Courier {
         return searched;
     }
 
-    public boolean[] freeDays(){
+    public boolean[] workDays(){
         boolean[] week = new boolean[7];
         for (Ride ride : rides) {
             week[ride.getDay() - 1] = true;
@@ -52,5 +52,7 @@ public class Courier {
         return week;
     }
 
-
+    public List<Ride> getRides() {
+        return new ArrayList<>(rides);
+    }
 }

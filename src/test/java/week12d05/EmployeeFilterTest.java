@@ -22,4 +22,13 @@ class EmployeeFilterTest {
         assertEquals("Gipsz Jakab", seniors.get(0).getName());
         assertEquals("Kis Piroska", seniors.get(1).getName());
     }
+
+    @Test
+    void exceptionsTest() {
+        List<Employee> employees = new ArrayList<>();
+        assertThrows(IllegalArgumentException.class, () -> new EmployeeFilter().countSeniorDevs(employees));
+        employees.add(new Employee(40, 5, "Gipsz Jakab", new ArrayList<>()));
+
+        assertThrows(IllegalArgumentException.class, () -> new EmployeeFilter().countSeniorDevs(employees));
+    }
 }

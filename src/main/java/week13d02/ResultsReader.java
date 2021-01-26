@@ -75,10 +75,9 @@ public class ResultsReader {
         for (Question question : questions) {
             if (!counter.containsKey(question.getId())) {
                 counter.put(question.getId(), 0);
-            } else {
-                int num = counter.get(question.getId());
-                counter.put(question.getId(), num + questionPoints(question));
             }
+            int num = counter.get(question.getId());
+            counter.put(question.getId(), num + questionPoints(question));
         }
         return findMax(counter);
     }

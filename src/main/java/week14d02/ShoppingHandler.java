@@ -34,7 +34,7 @@ public class ShoppingHandler {
         List<Product> products = new ArrayList<>();
         for (int i = 2; i < parts.length; i++) {
             String name = parts[i].substring(0, parts[i].indexOf("("));
-            int price = Integer.parseInt(parts[i].substring(parts[i].indexOf("(") + 1, parts.length - 1));
+            int price = Integer.parseInt(parts[i].substring(parts[i].indexOf("(") + 1, parts[i].length() - 1));
             products.add(new Product(name, price));
         }
         return products;
@@ -62,7 +62,7 @@ public class ShoppingHandler {
         return result;
     }
 
-    private int spendingOnOnePurchase(Purchase purchase){
+    private int spendingOnOnePurchase(Purchase purchase) {
         int result = 0;
         for (Product product : purchase.getProducts()) {
             result += product.getPrice();
@@ -70,29 +70,49 @@ public class ShoppingHandler {
         return result;
     }
 
-    public List<Product> productsByAlphabet(String purchaseId){
+    public List<Product> productsByAlphabet(String purchaseId) {
         Purchase purchase = findPurchase(purchaseId);
         List<Product> result = new ArrayList<>(purchase.getProducts());
-        result.sort(new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
+        result.sort(Comparator.comparing(Product::getName));
         return result;
     }
 
-    private Purchase findPurchase(String purchaseId){
+    private Purchase findPurchase(String purchaseId) {
         Purchase found = null;
         for (String buyer : buyers.keySet()) {
-            for (Purchase purchase : buyers.get(buyer)){
+            for (Purchase purchase : buyers.get(buyer)) {
                 if (purchase.getPurchaseId().equals(purchaseId)) {
                     found = purchase;
-                    return found;
                 }
             }
         }
         return found;
+    }
+
+    public int productAmount(String name) {
+        int amount = 0;
+        for (String buyerID : buyers.keySet()) {
+            for (Purchase purchase : buyers.get(buyerID)) {
+                for (Product product : purchase.getProducts()){
+                    if (product.getName().equals(name)){
+                        amount++;
+                    }
+                }
+            }
+        }
+        return amount;
+    }
+
+    public Map<String, Integer> statistics() {
+        Map<String, Integer> statistic = new HashMap<>();
+        for (Map.Entry<String, List<Purchase>> entry : buyers.entrySet()) {
+            for (Purchase purchase : entry.getValue()) {
+                for (Product product : purchase.getProducts()) {
+                    statistic.put(product.getName(), productAmount(product.getName()));
+                }
+            }
+        }
+        return statistic;
     }
 
 

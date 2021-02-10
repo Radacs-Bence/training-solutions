@@ -36,4 +36,9 @@ public class Post {
     public String getOwner() {
         return owner;
     }
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }
